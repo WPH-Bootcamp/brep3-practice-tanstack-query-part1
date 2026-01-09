@@ -1,21 +1,25 @@
-import { useQueryClient } from "@tanstack/react-query";
 import { useGetPosts } from "../hooks/posts/useGetPosts";
-import { postsKeys } from "../queries/posts";
+import { useCreatePost } from "../hooks/posts/useCreatePost";
 
 export default function PostPage() {
-  const queryClient = useQueryClient();
+  const { posts, isFetching, error } = useGetPosts({ limit: 10, page: 1 });
+  const createPost = useCreatePost();
 
-  const { posts, isFetching } = useGetPosts({ limit: 10, page: 1 });
+  if (error) return <div style={{ color: "red" }}>{error.message}</div>;
   return (
     <div>
       <h1>Posts Page {isFetching && "(Refreshing)"}</h1>
       <button
-        onClick={() => {
-          queryClient.invalidateQueries({ queryKey: postsKeys.all });
-        }}
+        onClick={() =>
+          createPost.mutate({
+            title: "Post baru",
+            body: "Contoh untuk mutation",
+          })
+        }
       >
-        Invalidate Posts
+        Create Post
       </button>
+
       <ul>
         {posts.map((post) => (
           <li key={post.id}>{post.title}</li>

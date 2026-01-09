@@ -1,5 +1,6 @@
-import axios, { type AxiosRequestConfig } from "axios";
+import { apiClient } from "../axios";
 import type { QueryFunction } from "@tanstack/react-query";
+import { type AxiosRequestConfig } from "axios";
 
 export type Post = {
   id: number;
@@ -33,13 +34,10 @@ export const getPosts: QueryFunction<GetPostsResponse, PostsQueryKey> = async ({
     signal,
   };
 
-  const response = await axios.get<Post[]>(
-    "https://jsonplaceholder.typicode.com/posts",
-    config
-  );
+  const response = await apiClient.get<Post[]>("/posts", config);
 
   return {
     posts: response.data,
-    totalPosts: 100,
+    totalPosts: Number(response.headers["x-total-count"]),
   };
 };

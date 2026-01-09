@@ -7,17 +7,19 @@ type UseGetPostsReturn = {
   totalPosts: number;
   isFetching: boolean;
   error: Error | null;
+  refetch: () => void;
 };
 
 export const useGetPosts = (params?: {
   limit?: number;
   page?: number;
 }): UseGetPostsReturn => {
-  const { data, isFetching, error } = useQuery(postsOptions(params));
+  const query = useQuery(postsOptions(params));
   return {
-    posts: data?.posts ?? [],
-    totalPosts: data?.totalPosts ?? 0,
-    isFetching,
-    error,
+    posts: query.data?.posts ?? [],
+    totalPosts: query.data?.totalPosts ?? 0,
+    isFetching: query.isFetching,
+    error: query.error,
+    refetch: query.refetch,
   };
 };
