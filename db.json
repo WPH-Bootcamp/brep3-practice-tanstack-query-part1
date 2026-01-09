@@ -1,0 +1,14 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "Belajar React",
+      "body": "React JS Itu mudah"
+    },
+    {
+      "id": 2,
+      "title": "Belajar Typescript",
+      "body": "Typescript Itu mudah"
+    }
+  ]
+}
