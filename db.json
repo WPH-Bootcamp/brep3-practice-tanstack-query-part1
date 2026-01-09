@@ -1,14 +1,44 @@
 {
   "posts": [
     {
-      "id": 1,
+      "id": "1",
       "title": "Belajar React",
       "body": "React JS Itu mudah"
     },
     {
-      "id": 2,
+      "id": "2",
       "title": "Belajar Typescript",
       "body": "Typescript Itu mudah"
+    },
+    {
+      "id": "e05d",
+      "title": "Post baru",
+      "body": "Contoh untuk mutation"
+    },
+    {
+      "id": "6a71",
+      "title": "Post baru",
+      "body": "Contoh untuk mutation"
+    },
+    {
+      "id": "77d4",
+      "title": "Post baru",
+      "body": "Contoh untuk mutation"
+    },
+    {
+      "id": "ac51",
+      "title": "Post baru",
+      "body": "Contoh untuk mutation"
+    },
+    {
+      "id": "3576",
+      "title": "Post baru",
+      "body": "Contoh untuk mutation"
+    },
+    {
+      "id": "8b9e",
+      "title": "Post baru",
+      "body": "Contoh untuk mutation"
     }
   ]
 }
